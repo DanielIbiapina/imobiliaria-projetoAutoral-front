@@ -17,6 +17,24 @@ export const GeometryContainer = styled.div`
   min-height: 100vh;
   height: 100%;
   background-color: #d4d4cc;
+
+  h4 {
+    display: flex;
+    align-items: flex-end;
+    font-weight: 600;
+    width: 40px;
+    height: 40px;
+    margin-left: 40px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: goldenrod;
+  }
+`;
+export const GeometryContainerMain = styled.div`
+  margin-top: 40px;
+  width: 100vmax;
+  height: 100%;
+  background-color: #d4d4cc;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,26 +45,27 @@ export const GeometryContainer = styled.div`
   }
 `;
 export const DataContainer = styled.div`
-  width: 700px;
+  width: 900px;
   height: 400px;
   display: flex;
   justify-content: space-around;
 `;
 export const Data = styled.div`
-  width: 100px;
+  width: 200px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
   p {
     color: black;
-    font-size: 18px;
+    font-size: 20px;
   }
 `;
 export const Input = styled.input`
   width: 100px;
   height: 30px;
-  font-size: 28px;
+  font-size: 20px;
 `;
 export const Form = styled.form`
   display: flex;
@@ -60,21 +79,48 @@ export const Form = styled.form`
     width: 100%;
     p {
       color: black;
-      font-size: 28px;
+      font-size: 20px;
     }
   }
 `;
 
-export const Next = styled.div``;
+export const Next = styled.div`
+  width: 100px;
+  height: 30px;
+  background-color: goldenrod;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 5px;
+`;
 export const SituationContainer = styled.div`
   width: 100vmax;
   min-height: 100vh;
+  height: 100%;
+  background-color: #d4d4cc;
+  h4 {
+    display: flex;
+    align-items: flex-end;
+    font-weight: 600;
+    width: 40px;
+    height: 40px;
+    margin-left: 40px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: goldenrod;
+  }
+`;
+export const SituationContainerMain = styled.div`
+  width: 100vmax;
   height: 100%;
   background-color: #d4d4cc;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 150px;
   p {
     color: black;
     font-size: 24px;

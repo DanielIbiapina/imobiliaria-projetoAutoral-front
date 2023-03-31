@@ -13,6 +13,9 @@ import { Form } from "./styles";
 import { SituationContainer } from "./styles";
 import { Next } from "./styles";
 import { toast } from "react-toastify";
+import { GeometryContainerMain } from "./styles";
+import { SituationContainerMain } from "./styles";
+import { useNavigate } from "react-router";
 
 export default function Guepardo() {
   const subsystems = [
@@ -46,6 +49,9 @@ export default function Guepardo() {
   const [forward, setForward] = useState(29.7);
   const [front, setFront] = useState(560);
   const [rear, setRear] = useState(602);
+  const [frontwheel, setFrontwheel] = useState(602);
+  const [rearwheel, setRearwheel] = useState(602);
+  const navigate = useNavigate();
 
   function showFirstPage(name) {
     if (name === "Geometry") {
@@ -92,8 +98,8 @@ export default function Guepardo() {
   function apply() {
     toast("Applied");
     increaseOrDecrease[increaseOrDecreaseVector[0]].includes("Increase")
-      ? setWheelbase(wheelbase + 10 * levelOfDifficultyVector)
-      : setWheelbase(wheelbase - 10 * levelOfDifficultyVector);
+      ? setWheelbase(wheelbase + Number(10 * levelOfDifficultyVector))
+      : setWheelbase(wheelbase - Number(10 * levelOfDifficultyVector));
 
     increaseOrDecrease[increaseOrDecreaseVector[1]].includes("Increase")
       ? setCaster(caster + 1 * levelOfDifficultyVector)
@@ -115,126 +121,160 @@ export default function Guepardo() {
           isLevel ? (
             isSolution ? (
               <SituationContainer>
-                <h2 onClick={() => setIsSolution(false)}>back</h2>
-                <p>Please choose a solution</p>
+                <h4 onClick={() => setIsSolution(false)}>Back</h4>
+                <SituationContainerMain>
+                  <p>Please choose a solution</p>
 
-                <h1 onClick={() => apply()}>
-                  {increaseOrDecrease[increaseOrDecreaseVector[0]]} wheelbase
-                  from {wheelbase} to{" "}
-                  {increaseOrDecrease[increaseOrDecreaseVector[0]].includes(
-                    "Increase"
-                  )
-                    ? wheelbase + 10 * levelOfDifficultyVector
-                    : wheelbase - 10 * levelOfDifficultyVector}
-                </h1>
+                  <h1 onClick={() => apply()}>
+                    {increaseOrDecrease[increaseOrDecreaseVector[0]]} wheelbase
+                    from {wheelbase} to{" "}
+                    {increaseOrDecrease[increaseOrDecreaseVector[0]].includes(
+                      "Increase"
+                    )
+                      ? wheelbase + 10 * levelOfDifficultyVector
+                      : wheelbase - 10 * levelOfDifficultyVector}
+                  </h1>
 
-                <h1 onClick={() => apply()}>
-                  {increaseOrDecrease[increaseOrDecreaseVector[1]]} caster from{" "}
-                  {caster} to{" "}
-                  {increaseOrDecrease[increaseOrDecreaseVector[1]].includes(
-                    "Increase"
-                  )
-                    ? caster + 1 * levelOfDifficultyVector
-                    : caster - 1 * levelOfDifficultyVector}{" "}
-                </h1>
+                  <h1 onClick={() => apply()}>
+                    {increaseOrDecrease[increaseOrDecreaseVector[1]]} caster
+                    from {caster} to{" "}
+                    {increaseOrDecrease[increaseOrDecreaseVector[1]].includes(
+                      "Increase"
+                    )
+                      ? caster + 1 * levelOfDifficultyVector
+                      : caster - 1 * levelOfDifficultyVector}{" "}
+                  </h1>
 
-                <h1 onClick={() => apply()}>
-                  {increaseOrDecrease[increaseOrDecreaseVector[2]]} offset from{" "}
-                  {forward} to{" "}
-                  {increaseOrDecrease[increaseOrDecreaseVector[2]].includes(
-                    "Increase"
-                  )
-                    ? forward + 0.3 * levelOfDifficultyVector
-                    : forward - 0.3 * levelOfDifficultyVector}{" "}
-                </h1>
-                <div onClick={() => apply()}>Apply</div>
+                  <h1 onClick={() => apply()}>
+                    {increaseOrDecrease[increaseOrDecreaseVector[2]]} offset
+                    from {forward.toFixed(2)} to{" "}
+                    {increaseOrDecrease[increaseOrDecreaseVector[2]].includes(
+                      "Increase"
+                    )
+                      ? (forward + 0.3 * levelOfDifficultyVector).toFixed(2)
+                      : (forward - 0.3 * levelOfDifficultyVector).toFixed(
+                          2
+                        )}{" "}
+                  </h1>
+                </SituationContainerMain>
               </SituationContainer>
             ) : (
               <SituationContainer>
-                <h2 onClick={() => setIsLevel(false)}>back</h2>
-                <p>What is the level of difficulty you are facing?"</p>
-                <h1 onClick={() => showFourthPage("high")}>High</h1>
-                <h1 onClick={() => showFourthPage("medium")}>Medium</h1>
-                <h1 onClick={() => showFourthPage("low")}>Low</h1>
+                <h4 onClick={() => setIsLevel(false)}>back</h4>
+                <SituationContainerMain>
+                  <p>What is the level of difficulty you are facing?"</p>
+                  <h1 onClick={() => showFourthPage("high")}>High</h1>
+                  <h1 onClick={() => showFourthPage("medium")}>Medium</h1>
+                  <h1 onClick={() => showFourthPage("low")}>Low</h1>
+                </SituationContainerMain>
               </SituationContainer>
             )
           ) : (
             <>
               <SituationContainer>
-                <h2 onClick={() => setIsSituation(false)}>back</h2>
-                <p>Please select the situation</p>{" "}
-                <h1 onClick={() => showThirdPage(1)}>
-                  Instabilidade em curvas
-                </h1>
-                <h1 onClick={() => showThirdPage(2)}>
-                  Dificuldade em fazer curvas
-                </h1>
-                <h1 onClick={() => showThirdPage(3)}>Instabilidade em retas</h1>
-                <h1 onClick={() => showThirdPage(4)}>Instabilidade no freio</h1>
-                <h1 onClick={() => showThirdPage(5)}>
-                  Instabilidade na aceleração
-                </h1>
+                <h4 onClick={() => setIsSituation(false)}>back</h4>
+                <SituationContainerMain>
+                  <p>Please select the situation</p>{" "}
+                  <h1 onClick={() => showThirdPage(1)}>
+                    Instability on the turns
+                  </h1>
+                  <h1 onClick={() => showThirdPage(2)}>Difficulty to turn</h1>
+                  <h1 onClick={() => showThirdPage(3)}>
+                    Instability on the straights
+                  </h1>
+                  <h1 onClick={() => showThirdPage(4)}>
+                    Instability at braking
+                  </h1>
+                  <h1 onClick={() => showThirdPage(5)}>
+                    Instability at accelerating
+                  </h1>
+                </SituationContainerMain>
               </SituationContainer>
             </>
           )
         ) : (
           <GeometryContainer>
-            <p onClick={() => setIsGeometry(false)}>Back</p>
-            <p>Geometry</p>
-            <DataContainer>
-              <Data>
-                <p>Wheelbase</p> <p>Caster</p> <p>Forward Offset </p>
-                <p>Front Tyre Diameter</p> <p>Rear Tyre Diameter</p>
-              </Data>
-              <Form>
-                <div>
-                  <Input
-                    type="number"
-                    placeholder=""
-                    value={wheelbase}
-                    onChange={(e) => setWheelbase(e.target.value)}
-                  />
-                  <p>mm</p>
-                </div>
-                <div>
-                  <Input
-                    type="number"
-                    placeholder=""
-                    value={caster}
-                    onChange={(e) => setCaster(e.target.value)}
-                  />
-                  <p> </p>
-                </div>
-                <div>
-                  <Input
-                    type="number"
-                    placeholder=""
-                    value={forward}
-                    onChange={(e) => setForward(e.target.value)}
-                  />
-                  <p>mm</p>
-                </div>
-                <div>
-                  <Input
-                    type="number"
-                    placeholder=""
-                    value={front}
-                    onChange={(e) => setFront(e.target.value)}
-                  />
-                  <p>mm</p>
-                </div>
-                <div>
-                  <Input
-                    type="number"
-                    placeholder=""
-                    value={rear}
-                    onChange={(e) => setRear(e.target.value)}
-                  />
-                  <p>mm</p>
-                </div>
-              </Form>
-            </DataContainer>
-            <Next onClick={() => showSecondPage()}>Next</Next>
+            <h4 onClick={() => setIsGeometry(false)}>Back</h4>
+            <GeometryContainerMain>
+              <p>Geometry</p>
+              <DataContainer>
+                <Data>
+                  <p>Wheelbase</p> <p>Caster</p> <p>Forward Offset </p>
+                  <p>Front Tyre Diameter</p> <p>Rear Tyre Diameter</p>
+                  <p>Front wheel</p>
+                  <p>Rear wheel</p>
+                </Data>
+                <Form>
+                  <div>
+                    <Input
+                      type="number"
+                      placeholder=""
+                      value={wheelbase}
+                      onChange={(e) => setWheelbase(e.target.value)}
+                    />
+                    <p>mm</p>
+                  </div>
+                  <div>
+                    <Input
+                      type="number"
+                      placeholder=""
+                      value={caster}
+                      onChange={(e) => setCaster(e.target.value)}
+                    />
+                    <p>°</p>
+                  </div>
+                  <div>
+                    <Input
+                      type="number"
+                      placeholder=""
+                      value={forward.toFixed(2)}
+                      onChange={(e) => setForward(e.target.value)}
+                    />
+                    <p>mm</p>
+                  </div>
+                  <div>
+                    <Input
+                      type="number"
+                      placeholder=""
+                      value={front}
+                      onChange={(e) => setFront(e.target.value)}
+                    />
+                    <p>mm</p>
+                  </div>
+                  <div>
+                    <Input
+                      type="number"
+                      placeholder=""
+                      value={rear}
+                      onChange={(e) => setRear(e.target.value)}
+                    />
+                    <p>mm</p>
+                  </div>
+                  <div>
+                    <Input
+                      type="number"
+                      placeholder=""
+                      value={frontwheel}
+                      onChange={(e) => setFrontwheel(e.target.value)}
+                    />
+                    <p>mm</p>
+                  </div>
+                  <div>
+                    <Input
+                      type="number"
+                      placeholder=""
+                      value={rearwheel}
+                      onChange={(e) => setRearwheel(e.target.value)}
+                    />
+                    <p>mm</p>
+                  </div>
+                </Form>
+              </DataContainer>
+              <Next onClick={() => showSecondPage()}>Next</Next>
+              <Next onClick={() => navigate("/guepardographics")}>
+                Graphics
+              </Next>
+            </GeometryContainerMain>
           </GeometryContainer>
         )
       ) : (
