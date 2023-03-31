@@ -141,24 +141,28 @@ export const SituationContainerMain = styled.div`
 
 export const SolutionExplanationContainer = styled.div`
   h5 {
+    box-sizing: border-box;
+    padding: 5px;
     display: flex;
 
     justify-content: center;
     width: 500px;
-    height: 80px;
+    height: 150px;
     background-color: gray;
     color: white;
     font-size: 18px;
     border-radius: 5px;
   }
   h6 {
+    margin-left: 390px;
+    position: fixed;
+    z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     font-size: 18px;
-    margin-top: 42px;
-    margin-right: 4px;
+    margin-top: 108px;
 
     width: 100px;
     height: 30px;

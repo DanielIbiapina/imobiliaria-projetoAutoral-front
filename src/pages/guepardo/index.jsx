@@ -154,7 +154,9 @@ export default function Guepardo() {
                     <SolutionExplanationContainer>
                       <h5>
                         Lalallalalall alalalallalla llallalalallal
-                        lalallalalalallalalla lalalallalalal lalala lla
+                        lalallalalalallalalla lalal ll al lal lala la lla
+                        lalalal lala l ala lall alal lala llalal la la lla lla
+                        la la lal lal all alala lalallala lalalal lallal
                         <h6 onClick={apply}>Apply</h6>
                       </h5>
                     </SolutionExplanationContainer>
@@ -175,7 +177,9 @@ export default function Guepardo() {
                     <SolutionExplanationContainer>
                       <h5>
                         Lalallalalall alalalallalla llallalalallal
-                        lalallalalalallalalla lalalallalalal lalala lla
+                        lalallalalalallalalla lalal ll al lal lala la lla
+                        lalalal lala l ala lall alal lala llalal la la lla lla
+                        la la lal lal all alala lalallala lalalal lallal
                         <h6 onClick={apply}>Apply</h6>
                       </h5>
                     </SolutionExplanationContainer>
