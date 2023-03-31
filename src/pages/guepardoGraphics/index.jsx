@@ -1,17 +1,27 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Chart from "chart.js";
 import styled from "styled-components";
+import UserContext from "../../contexts/userContext";
 
 function SenoGraph() {
   const chartRef = useRef(null);
-  const [wheelbase, setWheelbase] = useState(1350);
-  const [caster, setCaster] = useState(23);
-  const [forward, setForward] = useState(29.7);
-  const [front, setFront] = useState(560);
-  const [rear, setRear] = useState(602);
-  const [frontwheel, setFrontwheel] = useState(432);
-  const [rearwheel, setRearwheel] = useState(432);
 
+  const {
+    wheelbase,
+    setWheelbase,
+    caster,
+    setCaster,
+    forward,
+    setForward,
+    front,
+    setFront,
+    rear,
+    setRear,
+    frontwheel,
+    setFrontwheel,
+    rearwheel,
+    setRearwheel,
+  } = useContext(UserContext);
   useEffect(() => {
     const chartCanvas = chartRef.current.getContext("2d");
     const p = wheelbase;
@@ -44,24 +54,24 @@ function SenoGraph() {
     ];
     const a = R_f * Math.tan(ε) - d / Math.cos(ε);
     const a_n = a * Math.cos(ε);
-
+    console.log(caster);
     new Chart(chartCanvas, {
       type: "line",
       data: {
         labels: [
           "0",
-          "6π/360",
-          "12π/360",
-          "16π/360",
-          "22π/360",
-          "26π/360",
-          "30π/360",
-          "34π/360",
-          "40π/360",
+          "3π/180",
+          "6π/180",
+          "8π/180",
+          "11π/180",
+          "13π/180",
+          "15π/180",
+          "17π/180",
+          "20π/180",
         ],
         datasets: [
           {
-            label: "Seno",
+            label: "",
             data: [
               R_f *
                 (1 -
@@ -179,7 +189,7 @@ function SenoGraph() {
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: "Ângulo (em radianos)",
+                labelString: "Steering angle",
               },
             },
           ],
@@ -188,7 +198,7 @@ function SenoGraph() {
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: "Seno",
+                labelString: "Steering head lowering",
               },
             },
           ],

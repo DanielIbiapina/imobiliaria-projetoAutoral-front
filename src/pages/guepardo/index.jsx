@@ -4,7 +4,7 @@ import geometry from "../../assets/geometry.jpg";
 import aero from "../../assets/aero.jpg";
 import brakes from "../../assets/brakes.jpg";
 import gearing from "../../assets/gearing.jpg";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { GeometryContainer } from "./styles";
 import { DataContainer } from "./styles";
 import { Data } from "./styles";
@@ -16,6 +16,8 @@ import { toast } from "react-toastify";
 import { GeometryContainerMain } from "./styles";
 import { SituationContainerMain } from "./styles";
 import { useNavigate } from "react-router";
+import { SolutionExplanationContainer } from "./styles";
+import UserContext from "../../contexts/userContext";
 
 export default function Guepardo() {
   const subsystems = [
@@ -36,7 +38,7 @@ export default function Guepardo() {
       image: aero,
     },
   ];
-
+  const [isSolutionExplanation, setIsSolutionExplanation] = useState([3]);
   const [levelOfDifficultyVector, setlevelOfDifficultyVector] = useState("");
   const increaseOrDecrease = ["Increase", "Decrease"];
   const [increaseOrDecreaseVector, setIncreaseOrDecreaseVector] = useState("");
@@ -44,13 +46,22 @@ export default function Guepardo() {
   const [isSituation, setIsSituation] = useState(false);
   const [isLevel, setIsLevel] = useState(false);
   const [isSolution, setIsSolution] = useState(false);
-  const [wheelbase, setWheelbase] = useState(1380);
-  const [caster, setCaster] = useState(23);
-  const [forward, setForward] = useState(29.7);
-  const [front, setFront] = useState(560);
-  const [rear, setRear] = useState(602);
-  const [frontwheel, setFrontwheel] = useState(602);
-  const [rearwheel, setRearwheel] = useState(602);
+  const {
+    wheelbase,
+    setWheelbase,
+    caster,
+    setCaster,
+    forward,
+    setForward,
+    front,
+    setFront,
+    rear,
+    setRear,
+    frontwheel,
+    setFrontwheel,
+    rearwheel,
+    setRearwheel,
+  } = useContext(UserContext);
   const navigate = useNavigate();
 
   function showFirstPage(name) {
@@ -95,6 +106,10 @@ export default function Guepardo() {
     }
     setIsSolution(true);
   }
+  function showSolution(index) {
+    const na = [index];
+    setIsSolutionExplanation(na);
+  }
   function apply() {
     toast("Applied");
     increaseOrDecrease[increaseOrDecreaseVector[0]].includes("Increase")
@@ -113,7 +128,8 @@ export default function Guepardo() {
     setIsLevel(false);
     setIsSolution(false);
   }
-  console.log(levelOfDifficultyVector);
+  console.log(caster);
+
   return (
     <>
       {isGeometry ? (
@@ -125,7 +141,7 @@ export default function Guepardo() {
                 <SituationContainerMain>
                   <p>Please choose a solution</p>
 
-                  <h1 onClick={() => apply()}>
+                  <h1 onClick={() => showSolution(0)}>
                     {increaseOrDecrease[increaseOrDecreaseVector[0]]} wheelbase
                     from {wheelbase} to{" "}
                     {increaseOrDecrease[increaseOrDecreaseVector[0]].includes(
@@ -134,8 +150,19 @@ export default function Guepardo() {
                       ? wheelbase + 10 * levelOfDifficultyVector
                       : wheelbase - 10 * levelOfDifficultyVector}
                   </h1>
+                  {isSolutionExplanation.includes(0) ? (
+                    <SolutionExplanationContainer>
+                      <h5>
+                        Lalallalalall alalalallalla llallalalallal
+                        lalallalalalallalalla lalalallalalal lalala lla
+                        <h6 onClick={apply}>Apply</h6>
+                      </h5>
+                    </SolutionExplanationContainer>
+                  ) : (
+                    ""
+                  )}
 
-                  <h1 onClick={() => apply()}>
+                  <h1 onClick={() => showSolution(1)}>
                     {increaseOrDecrease[increaseOrDecreaseVector[1]]} caster
                     from {caster} to{" "}
                     {increaseOrDecrease[increaseOrDecreaseVector[1]].includes(
@@ -144,8 +171,19 @@ export default function Guepardo() {
                       ? caster + 1 * levelOfDifficultyVector
                       : caster - 1 * levelOfDifficultyVector}{" "}
                   </h1>
+                  {isSolutionExplanation.includes(1) ? (
+                    <SolutionExplanationContainer>
+                      <h5>
+                        Lalallalalall alalalallalla llallalalallal
+                        lalallalalalallalalla lalalallalalal lalala lla
+                        <h6 onClick={apply}>Apply</h6>
+                      </h5>
+                    </SolutionExplanationContainer>
+                  ) : (
+                    ""
+                  )}
 
-                  <h1 onClick={() => apply()}>
+                  <h1 onClick={() => showSolution(2)}>
                     {increaseOrDecrease[increaseOrDecreaseVector[2]]} offset
                     from {forward.toFixed(2)} to{" "}
                     {increaseOrDecrease[increaseOrDecreaseVector[2]].includes(
@@ -156,6 +194,17 @@ export default function Guepardo() {
                           2
                         )}{" "}
                   </h1>
+                  {isSolutionExplanation.includes(2) ? (
+                    <SolutionExplanationContainer>
+                      <h5>
+                        Lalallalalall alalalallalla llallalalallal
+                        lalallalalalallalalla lalalallalalal lalala lla
+                        <h6 onClick={apply}>Apply</h6>
+                      </h5>
+                    </SolutionExplanationContainer>
+                  ) : (
+                    ""
+                  )}
                 </SituationContainerMain>
               </SituationContainer>
             ) : (

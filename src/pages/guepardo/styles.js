@@ -138,3 +138,33 @@ export const SituationContainerMain = styled.div`
     border-radius: 5px;
   }
 `;
+
+export const SolutionExplanationContainer = styled.div`
+  h5 {
+    display: flex;
+
+    justify-content: center;
+    width: 500px;
+    height: 80px;
+    background-color: gray;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+  }
+  h6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    margin-top: 42px;
+    margin-right: 4px;
+
+    width: 100px;
+    height: 30px;
+    background-color: #4b5255;
+
+    border-radius: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+`;
