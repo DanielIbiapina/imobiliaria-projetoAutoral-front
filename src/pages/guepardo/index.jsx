@@ -110,20 +110,23 @@ export default function Guepardo() {
     const na = [index];
     setIsSolutionExplanation(na);
   }
-  function apply() {
+  function apply(arg) {
     toast("Applied");
-    increaseOrDecrease[increaseOrDecreaseVector[0]].includes("Increase")
-      ? setWheelbase(wheelbase + Number(10 * levelOfDifficultyVector))
-      : setWheelbase(wheelbase - Number(10 * levelOfDifficultyVector));
-
-    increaseOrDecrease[increaseOrDecreaseVector[1]].includes("Increase")
-      ? setCaster(caster + 1 * levelOfDifficultyVector)
-      : setCaster(caster - 1 * levelOfDifficultyVector);
-
-    increaseOrDecrease[increaseOrDecreaseVector[2]].includes("Increase")
-      ? setForward(forward + 0.3 * levelOfDifficultyVector)
-      : setForward(forward - 0.3 * levelOfDifficultyVector);
-
+    if (arg === "fs") {
+      increaseOrDecrease[increaseOrDecreaseVector[0]].includes("Increase")
+        ? setWheelbase(wheelbase + Number(10 * levelOfDifficultyVector))
+        : setWheelbase(wheelbase - Number(10 * levelOfDifficultyVector));
+    }
+    if (arg === "ss") {
+      increaseOrDecrease[increaseOrDecreaseVector[1]].includes("Increase")
+        ? setCaster(caster + 1 * levelOfDifficultyVector)
+        : setCaster(caster - 1 * levelOfDifficultyVector);
+    }
+    if (arg === "ts") {
+      increaseOrDecrease[increaseOrDecreaseVector[2]].includes("Increase")
+        ? setForward(forward + 0.3 * levelOfDifficultyVector)
+        : setForward(forward - 0.3 * levelOfDifficultyVector);
+    }
     setIsSituation(false);
     setIsLevel(false);
     setIsSolution(false);
@@ -157,7 +160,7 @@ export default function Guepardo() {
                         lalallalalalallalalla lalal ll al lal lala la lla
                         lalalal lala l ala lall alal lala llalal la la lla lla
                         la la lal lal all alala lalallala lalalal lallal
-                        <h6 onClick={apply}>Apply</h6>
+                        <h6 onClick={() => apply("fs")}>Apply</h6>
                       </h5>
                     </SolutionExplanationContainer>
                   ) : (
@@ -180,7 +183,7 @@ export default function Guepardo() {
                         lalallalalalallalalla lalal ll al lal lala la lla
                         lalalal lala l ala lall alal lala llalal la la lla lla
                         la la lal lal all alala lalallala lalalal lallal
-                        <h6 onClick={apply}>Apply</h6>
+                        <h6 onClick={() => apply("ss")}>Apply</h6>
                       </h5>
                     </SolutionExplanationContainer>
                   ) : (
@@ -203,7 +206,7 @@ export default function Guepardo() {
                       <h5>
                         Lalallalalall alalalallalla llallalalallal
                         lalallalalalallalalla lalalallalalal lalala lla
-                        <h6 onClick={apply}>Apply</h6>
+                        <h6 onClick={() => apply("ts")}>Apply</h6>
                       </h5>
                     </SolutionExplanationContainer>
                   ) : (
