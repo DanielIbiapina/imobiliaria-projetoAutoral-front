@@ -160,7 +160,7 @@ export default function Guepardo() {
               </SituationContainer>
             ) : (
               <SituationContainer>
-                <h4 onClick={() => setIsLevel(false)}>back</h4>
+                <h4 onClick={() => setIsLevel(false)}>Back</h4>
                 <SituationContainerMain>
                   <p>What is the level of difficulty you are facing?"</p>
                   <h1 onClick={() => showFourthPage("high")}>High</h1>
@@ -172,7 +172,7 @@ export default function Guepardo() {
           ) : (
             <>
               <SituationContainer>
-                <h4 onClick={() => setIsSituation(false)}>back</h4>
+                <h4 onClick={() => setIsSituation(false)}>Back</h4>
                 <SituationContainerMain>
                   <p>Please select the situation</p>{" "}
                   <h1 onClick={() => showThirdPage(1)}>
