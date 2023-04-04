@@ -9,5 +9,6 @@ export const EmpreendimentosContainer = styled.div`
   p {
     color: #326d97;
     margin-bottom: 20px;
+    font-size: 30px;
   }
 `;

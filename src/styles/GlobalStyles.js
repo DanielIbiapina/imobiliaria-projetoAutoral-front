@@ -45,7 +45,7 @@ body{
 }
 
 body, input, textarea, button, span {
- font-family: 'Lato', sans-serif;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 400;
   border: none;
   outline: none;
@@ -54,11 +54,11 @@ body, input, textarea, button, span {
 
 h1, h2, h3, h4, h5, h6, strong {
  font-weight: 400;
- font-family: 'Oswald', sans-serif;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 p, label {
-font-family: 'Lato', sans-serif;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
  color: var(--white);
  font-weight: 700;
 }
@@ -67,7 +67,7 @@ button{
   cursor: pointer;
   outline: none;
   border: none;
-font-family: 'Lato', sans-serif;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 a{

@@ -71,7 +71,7 @@ function SenoGraph() {
         ],
         datasets: [
           {
-            label: "",
+            label: "Graph 1",
             data: [
               R_f *
                 (1 -
@@ -173,7 +173,7 @@ function SenoGraph() {
         responsive: true,
         title: {
           display: true,
-          text: "Gráfico do Seno",
+          text: "",
         },
         tooltips: {
           mode: "null",
@@ -189,7 +189,7 @@ function SenoGraph() {
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: "Steering angle",
+                labelString: "Angles",
               },
             },
           ],
@@ -198,7 +198,7 @@ function SenoGraph() {
               display: true,
               scaleLabel: {
                 display: true,
-                labelString: "Steering head lowering",
+                labelString: "1/10 Milimeter",
               },
             },
           ],

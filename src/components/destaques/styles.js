@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const DestaquesContainer = styled.div`
   box-sizing: border-box;
   width: 100vmax;
-  height: 600px;
+  height: 550px;
   background-color: #f4fafa;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,8 @@ export const DestaquesContainer = styled.div`
   p {
     margin-top: 50px;
     color: #326d97;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    font-size: 30px;
   }
 `;
 
@@ -51,11 +52,11 @@ export const ImovelSideBar = styled.div`
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   h1 {
-    color: white;
+    color: #f4fafa;
     font-size: 34px;
   }
   h2 {
-    color: white;
+    color: #f4fafa;
     font-size: 20px;
   }
 `;

@@ -10,6 +10,7 @@ export const HeaderContainer = styled.div`
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 3;
 `;
 export const Logo = styled.img`
   height: 72px;
@@ -19,4 +20,6 @@ export const AtalhosContainer = styled.div`
   display: flex;
   justify-content: space-around;
 `;
-export const Atalhos = styled.div``;
+export const Atalhos = styled.div`
+  color: #f4fafa;
+`;
