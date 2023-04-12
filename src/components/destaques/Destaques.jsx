@@ -9,6 +9,7 @@ export default function Destaques({ destaqueProperty }) {
   if (destaqueProperty[0] === undefined) {
     return "carregando...";
   }
+
   return (
     <>
       <DestaquesContainer>

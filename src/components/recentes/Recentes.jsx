@@ -7,8 +7,16 @@ import { FaBed, FaBath, FaCar } from "react-icons/fa";
 import { Icons } from "./styles";
 import { Divisor } from "./styles";
 import { Price } from "./styles";
-
+import { useNavigate } from "react-router";
+import { useContext } from "react";
+import UserContext from "../../contexts/userContext";
 export default function Recentes({ recentProperties }) {
+  const navigate = useNavigate();
+  const { setId } = useContext(UserContext);
+  function goToProperty(id) {
+    setId(id);
+    navigate(`/property/${id}`);
+  }
   return (
     <>
       <RecentesContainer>
@@ -16,7 +24,7 @@ export default function Recentes({ recentProperties }) {
         <ImoveisContainer>
           {recentProperties.map((property) => {
             return (
-              <Imovel>
+              <Imovel onClick={() => goToProperty(property.id)}>
                 <Price>
                   Venda
                   <h3>{property.price} €</h3>
