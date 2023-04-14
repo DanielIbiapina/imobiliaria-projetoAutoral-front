@@ -25,6 +25,11 @@ export default function Header() {
       case "Login":
         setIsLogin(true);
         break;
+      case "Inicio":
+        setCor([]);
+        setIsClicked(false);
+        navigate("/");
+        break;
 
       default:
         break;

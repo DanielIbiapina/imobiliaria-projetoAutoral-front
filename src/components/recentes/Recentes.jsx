@@ -12,9 +12,9 @@ import { useContext } from "react";
 import UserContext from "../../contexts/userContext";
 export default function Recentes({ recentProperties }) {
   const navigate = useNavigate();
-  const { setId } = useContext(UserContext);
+  const { setId, setAndPersistId } = useContext(UserContext);
   function goToProperty(id) {
-    setId(id);
+    setAndPersistId(id);
     navigate(`/property/${id}`);
   }
   return (

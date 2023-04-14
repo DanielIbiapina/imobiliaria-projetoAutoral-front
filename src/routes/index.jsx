@@ -15,6 +15,16 @@ const NotFound = () => {
 
 function RoutesApp() {
   const [id, setId] = useState(0);
+  const [token, setToken] = useState("");
+
+  function setAndPersistToken(token) {
+    setToken(token);
+    localStorage.setItem("token", token);
+  }
+  function setAndPersistId(id) {
+    setId(id);
+    localStorage.setItem("id", id);
+  }
 
   return (
     <>
@@ -22,6 +32,10 @@ function RoutesApp() {
         value={{
           id,
           setId,
+          setAndPersistId,
+          token,
+          setToken,
+          setAndPersistToken,
         }}
       >
         <Routes>

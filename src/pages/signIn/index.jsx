@@ -1,5 +1,5 @@
 import { Oval } from "react-loader-spinner";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api.js";
@@ -10,23 +10,28 @@ import {
   Form,
   Input,
 } from "./styles.js";
+import UserContext from "../../contexts/userContext.jsx";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { setAndPersistToken } = useContext(UserContext);
 
   async function fazerLogin(event) {
     try {
       event.preventDefault();
       setLoading(true);
-      await api.post(`/auth/sign-in`, {
+      const userData = await api.post(`/auth/sign-in`, {
         email: email,
         password: senha,
       });
+      console.log(userData.data.token);
+      setAndPersistToken(userData.data.token);
       setLoading(false);
       navigate("/");
+      console.log();
     } catch (error) {
       alert("erro");
       setLoading(false);

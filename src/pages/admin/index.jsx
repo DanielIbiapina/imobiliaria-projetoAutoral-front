@@ -1,9 +1,10 @@
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import { Form, Input, InputText, MainAdmin, PostButton } from "./styles";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import UserContext from "../../contexts/userContext";
 
 export default function Admin() {
   const [rooms, setRooms] = useState("");
@@ -19,6 +20,12 @@ export default function Admin() {
   const [balcony, setBalcony] = useState("");
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
+  const token = localStorage.getItem("token");
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
   async function createProperty() {
     try {
@@ -45,24 +52,28 @@ export default function Admin() {
 
       setLoading(true);
 
-      await api.post("/admin", {
-        data: {
-          rooms: Number(rooms),
-          bathrooms: Number(bathrooms),
-          parkingSpaces: Number(parkingSpaces),
-          area: Number(area),
-          address: address,
-          name: name,
-          image: image,
-          price: price,
+      await api.post(
+        "/admin",
+        {
+          data: {
+            rooms: Number(rooms),
+            bathrooms: Number(bathrooms),
+            parkingSpaces: Number(parkingSpaces),
+            area: Number(area),
+            address: address,
+            name: name,
+            image: image,
+            price: price,
+          },
+          fullData: {
+            laundry: Number(laundry),
+            elevator: Number(elevator),
+            description: description,
+            balcony: Number(balcony),
+          },
         },
-        fullData: {
-          laundry: Number(laundry),
-          elevator: Number(elevator),
-          description: description,
-          balcony: Number(balcony),
-        },
-      });
+        config
+      );
 
       toast("Imóvel criado");
       setLoading(false);
@@ -73,6 +84,7 @@ export default function Admin() {
     }
   }
 
+  console.log(token);
   return (
     <>
       <Header />
