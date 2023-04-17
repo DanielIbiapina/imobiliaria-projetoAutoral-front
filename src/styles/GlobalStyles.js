@@ -73,6 +73,7 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 a{
   text-decoration: none;
   text-align: center;
+  color: inherit;
 }
 
 

@@ -10,6 +10,7 @@ import { useEffect, useState, useNavigate } from "react";
 export default function Home() {
   const [recentProperties, setRecentProperties] = useState([]);
   const [destaqueProperty, setDestaqueProperty] = useState([]);
+  const [developmentProperties, setDevelopmentProperties] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -23,9 +24,19 @@ export default function Home() {
       }
 
       try {
-        const propertyDataDestaque = await api.get("property/destaques");
+        const propertyDataDestaque = await api.get("/property/destaques");
         console.log(propertyDataDestaque.data);
         setDestaqueProperty(propertyDataDestaque.data);
+      } catch (e) {
+        console.log(e);
+      }
+
+      try {
+        const realStateDevelopmentData = await api.get(
+          "/realstate-development"
+        );
+        console.log(realStateDevelopmentData.data);
+        setDevelopmentProperties(realStateDevelopmentData.data);
       } catch (e) {
         console.log(e);
       }
@@ -39,7 +50,7 @@ export default function Home() {
       <Main>
         <Destaques destaqueProperty={destaqueProperty} />
         <Recentes recentProperties={recentProperties} />
-        <Empreendimentos />
+        <Empreendimentos developmentProperties={developmentProperties} />
       </Main>
       <Footer />
     </>

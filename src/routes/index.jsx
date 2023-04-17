@@ -8,6 +8,8 @@ import Property from "../pages/property";
 import SignIn from "../pages/signIn";
 import SignUp from "../pages/signUp";
 import Admin from "../pages/admin";
+import Announcement from "../pages/announcement";
+import Contact from "../pages/contact";
 
 const NotFound = () => {
   return <p>Não encontrado</p>;
@@ -46,6 +48,8 @@ function RoutesApp() {
           <Route path="/guepardographics" element={<SenoGraph />} />
           <Route path="/property/:id" element={<Property />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/announcement" element={<Announcement />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </UserContext.Provider>

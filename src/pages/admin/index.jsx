@@ -19,6 +19,12 @@ export default function Admin() {
   const [elevator, setElevator] = useState("");
   const [balcony, setBalcony] = useState("");
   const [description, setDescription] = useState("");
+  const [nameRS, setNameRS] = useState("");
+  const [addressRS, setAddressRS] = useState("");
+  const [mainImageRS, setMainImageRS] = useState("");
+  const [descriptionRS, setDescriptionRS] = useState("");
+  const [idRS, setIdRS] = useState("");
+  const [imageRS, setImageRS] = useState("");
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
   const config = {
@@ -80,6 +86,70 @@ export default function Admin() {
     } catch (e) {
       console.log(e);
       toast("Imóvel não foi criado");
+      setLoading(false);
+    }
+  }
+
+  async function createRealState() {
+    try {
+      if (loading) {
+        return;
+      }
+
+      if (!nameRS || !addressRS || !mainImageRS || !descriptionRS) {
+        alert("Preencha todos os campos obrigatórios");
+        return;
+      }
+
+      setLoading(true);
+
+      await api.post(
+        "/admin/realstate-development",
+        {
+          address: addressRS,
+          name: nameRS,
+          description: descriptionRS,
+          mainImage: mainImageRS,
+        },
+        config
+      );
+
+      toast("Empreendimento criado");
+      setLoading(false);
+    } catch (e) {
+      console.log(e);
+      toast("Empreendimento não foi criado");
+      setLoading(false);
+    }
+  }
+
+  async function addImageRealState() {
+    try {
+      if (loading) {
+        return;
+      }
+
+      if (!imageRS || !idRS) {
+        alert("Preencha todos os campos obrigatórios");
+        return;
+      }
+
+      setLoading(true);
+
+      await api.post(
+        "/admin/realstate-development-image",
+        {
+          realStateDevelopmentId: Number(idRS),
+          image: imageRS,
+        },
+        config
+      );
+
+      toast("Imagem adicionada");
+      setLoading(false);
+    } catch (e) {
+      console.log(e);
+      toast("Imagem não foi adicionada");
       setLoading(false);
     }
   }
@@ -182,6 +252,66 @@ export default function Admin() {
           <div>
             <PostButton onClick={createProperty} disabled={loading}>
               Adicionar imóvel
+            </PostButton>
+          </div>
+        </Form>
+        <p>Preencha os dados do empreendimento</p>
+        <Form>
+          <Input
+            type="text"
+            placeholder="  Nome"
+            value={nameRS}
+            onChange={(e) => setNameRS(e.target.value)}
+            disabled={loading}
+          />
+          <Input
+            type="text"
+            placeholder="  Address"
+            value={addressRS}
+            onChange={(e) => setAddressRS(e.target.value)}
+            disabled={loading}
+          />
+          <Input
+            type="text"
+            placeholder="  Imagem Principal"
+            value={mainImageRS}
+            onChange={(e) => setMainImageRS(e.target.value)}
+            disabled={loading}
+          />
+          <InputText
+            type="text"
+            placeholder="  Descrição"
+            value={descriptionRS}
+            onChange={(e) => setDescriptionRS(e.target.value)}
+            disabled={loading}
+          />
+
+          <div>
+            <PostButton onClick={createRealState} disabled={loading}>
+              Adicionar Empreendimento
+            </PostButton>
+          </div>
+        </Form>
+        <p>Adicione imagens ao Empreendimento</p>
+        <Form>
+          <Input
+            type="number"
+            placeholder="  Id do empreendimento"
+            value={idRS}
+            onChange={(e) => setIdRS(e.target.value)}
+            disabled={loading}
+          />
+          <Input
+            type="text"
+            placeholder="  Imagem"
+            value={imageRS}
+            onChange={(e) => setImageRS(e.target.value)}
+            disabled={loading}
+          />
+
+          <div>
+            <PostButton onClick={addImageRealState} disabled={loading}>
+              Adicionar Imagem
             </PostButton>
           </div>
         </Form>

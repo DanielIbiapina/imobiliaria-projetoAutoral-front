@@ -28,9 +28,12 @@ export default function SignIn() {
         password: senha,
       });
       console.log(userData.data.token);
+      console.log(userData.data);
       setAndPersistToken(userData.data.token);
       setLoading(false);
-      navigate("/");
+      if (userData.data.user.isAdmin) {
+        navigate("/admin");
+      } else navigate("/");
       console.log();
     } catch (error) {
       alert("erro");

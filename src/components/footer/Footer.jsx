@@ -7,6 +7,7 @@ import { SocialMedia } from "./styles";
 import { FooterContainer1 } from "./styles";
 import { FooterContainer2 } from "./styles";
 import { SocialMediaContainer } from "./styles";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -14,7 +15,9 @@ export default function Footer() {
       <FooterContainer1>
         <Whatsapp>
           <p>Envie uma mensagem</p>
-          <button>Enviar mensagem</button>
+          <Link to={"/contact"}>
+            <button>Enviar mensagem</button>
+          </Link>
         </Whatsapp>
         <Address>
           <MdRoom />
@@ -23,9 +26,15 @@ export default function Footer() {
         <SocialMedia>
           <p>Redes Sociais</p>
           <SocialMediaContainer>
-            <BsInstagram />
-            <BsWhatsapp />
-            <MdEmail />
+            <a href="https://www.instagram.com/martinsbrokers/">
+              <BsInstagram />
+            </a>
+            <a href="https://wa.me/351938374379">
+              <BsWhatsapp />
+            </a>
+            <a href="mailto:martins.daniel@hotmail.com">
+              <MdEmail />
+            </a>
           </SocialMediaContainer>
         </SocialMedia>
       </FooterContainer1>

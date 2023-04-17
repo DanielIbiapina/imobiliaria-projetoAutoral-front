@@ -7,7 +7,13 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const atalhos = ["Inicio", "Lalala", "Lalala", "Lalala", "Lalala", "Login"];
+  const atalhos = [
+    "Inicio",
+    "Anuncie",
+    "Contato",
+    "Área do cliente",
+    "Área do admin",
+  ];
   const [isClicked, setIsClicked] = useState();
   const [isLogin, setIsLogin] = useState(false);
   const [cor, setCor] = useState([]);
@@ -19,16 +25,34 @@ export default function Header() {
       return;
     }
     setCor([index]);
-    setIsClicked(true);
+    //change here
+    setIsClicked(false);
 
     switch (atalho) {
-      case "Login":
-        setIsLogin(true);
-        break;
       case "Inicio":
         setCor([]);
         setIsClicked(false);
         navigate("/");
+        break;
+      case "Anuncie":
+        setCor([]);
+        setIsClicked(false);
+        navigate("/announcement");
+        break;
+      case "Contato":
+        setCor([]);
+        setIsClicked(false);
+        navigate("/contact");
+        break;
+      case "Área do cliente":
+        setCor([]);
+        setIsClicked(false);
+        navigate("/auth/sign-in");
+        break;
+      case "Área do admin":
+        setCor([]);
+        setIsClicked(false);
+        navigate("/auth/sign-in");
         break;
 
       default:
