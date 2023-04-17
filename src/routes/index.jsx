@@ -10,6 +10,7 @@ import SignUp from "../pages/signUp";
 import Admin from "../pages/admin";
 import Announcement from "../pages/announcement";
 import Contact from "../pages/contact";
+import RealStateDevelopment from "../pages/realstate-development";
 
 const NotFound = () => {
   return <p>Não encontrado</p>;
@@ -47,6 +48,10 @@ function RoutesApp() {
           <Route path="/guepardo" element={<Guepardo />} />
           <Route path="/guepardographics" element={<SenoGraph />} />
           <Route path="/property/:id" element={<Property />} />
+          <Route
+            path="/realstate-development/:id"
+            element={<RealStateDevelopment />}
+          />
           <Route path="/admin" element={<Admin />} />
           <Route path="/announcement" element={<Announcement />} />
           <Route path="/contact" element={<Contact />} />

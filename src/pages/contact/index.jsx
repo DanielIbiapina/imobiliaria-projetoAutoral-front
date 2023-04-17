@@ -43,8 +43,9 @@ export default function Contact() {
         <p>
           • WhatsApp: <a href="https://wa.me/351938374379">+351 938 374 379</a>
         </p>
+        <ContactComponent />
       </MainContact>
-      <ContactComponent />
+
       <Footer />
     </>
   );

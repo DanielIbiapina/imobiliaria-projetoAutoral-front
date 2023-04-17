@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const ContactContainer = styled.div`
-  width: 100vmax;
-  min-height: 100vh;
-  height: 100%;
+  width: 1000px;
   margin-top: 72px;
   display: flex;
   flex-direction: column;
@@ -27,7 +25,7 @@ export const Form = styled.form`
 export const Input = styled.input`
   box-sizing: border-box;
   width: 503px;
-  height: 30px;
+  height: 70px;
   margin-bottom: 5px;
   background: #efefef;
   border-radius: 5px;
@@ -60,6 +58,6 @@ export const InputText = styled.input`
 export const PostButton = styled.button`
   width: 112px;
   height: 31px;
-  background: #1877f2;
+  background: #326d97;
   border-radius: 5px;
 `;

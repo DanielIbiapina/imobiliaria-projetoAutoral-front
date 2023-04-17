@@ -41,12 +41,14 @@ export const Neighborhood = styled.div`
 export const NextImages = styled.div`
   display: flex;
   align-items: center;
-  height: 80px;
+  height: 100px;
   margin-top: -3px;
   img {
     height: 100%;
     margin-right: 5px;
+    flex-shrink: 0;
   }
+  overflow-x: scroll;
 `;
 export const FullDataBar = styled.div`
   box-sizing: border-box;
@@ -85,7 +87,7 @@ export const Divisor = styled.div`
 `;
 export const SideBar = styled.div`
   width: 500px;
-  height: 600px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -8,6 +8,7 @@ export const MainAdmin = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 30px;
   p {
     color: black;
   }
@@ -62,4 +63,16 @@ export const PostButton = styled.button`
   height: 31px;
   background: #1877f2;
   border-radius: 5px;
+`;
+
+export const AddPropertyContainer = styled.div`
+  box-sizing: border-box;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  width: 503px;
+  height: 70px;
+  border-radius: 20px;
+  background: #1877f2;
+  margin-top: 30px;
 `;

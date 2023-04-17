@@ -1,10 +1,18 @@
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import { Form, Input, InputText, MainAdmin, PostButton } from "./styles";
+import {
+  AddPropertyContainer,
+  Form,
+  Input,
+  InputText,
+  MainAdmin,
+  PostButton,
+} from "./styles";
 import { useState, useContext } from "react";
 import api from "../../services/api";
 import { toast } from "react-toastify";
 import UserContext from "../../contexts/userContext";
+import { RxTriangleRight, RxTriangleDown } from "react-icons/rx";
 
 export default function Admin() {
   const [rooms, setRooms] = useState("");
@@ -27,6 +35,9 @@ export default function Admin() {
   const [imageRS, setImageRS] = useState("");
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
+  const [isAddProperty, setIsAddProperty] = useState(false);
+  const [isAddRealState, setIsAddRealState] = useState(false);
+  const [isAddRealStateImage, setIsAddRealStateImage] = useState(false);
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -159,162 +170,207 @@ export default function Admin() {
     <>
       <Header />
       <MainAdmin>
-        <p>Preencha os dados do imóvel a ser adicionado</p>
-        <Form>
-          <Input
-            type="number"
-            placeholder="  Quartos"
-            value={rooms}
-            onChange={(e) => setRooms(e.target.value)}
-            disabled={loading}
-          />
-          <Input
-            type="number"
-            placeholder="  Banheiros"
-            value={bathrooms}
-            onChange={(e) => setBathrooms(e.target.value)}
-            disabled={loading}
-          />
-          <Input
-            type="number"
-            placeholder="  Vagas de garagem"
-            value={parkingSpaces}
-            onChange={(e) => setParkingSpaces(e.target.value)}
-            disabled={loading}
-          />
-          <Input
-            type="number"
-            placeholder="  Área em m²"
-            value={area}
-            onChange={(e) => setArea(e.target.value)}
-            disabled={loading}
-          />
-          <InputText
-            type="text"
-            placeholder="  Endereço"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            disabled={loading}
-          />
-          <Input
-            type="text"
-            placeholder="  Nome"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            disabled={loading}
-          />
-          <Input
-            type="text"
-            placeholder="  Imagem"
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
-            disabled={loading}
-          />
-          <Input
-            type="text"
-            placeholder="  Preço"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            disabled={loading}
-          />
-        </Form>
-        <p>Preencha os dados extras</p>
-        <Form>
-          <Input
-            type="number"
-            placeholder="  Lavanderia"
-            value={laundry}
-            onChange={(e) => setLaundry(e.target.value)}
-            disabled={loading}
-          />
-          <Input
-            type="number"
-            placeholder="  Elevador"
-            value={elevator}
-            onChange={(e) => setElevator(e.target.value)}
-            disabled={loading}
-          />
-          <Input
-            type="number"
-            placeholder="  Varanda"
-            value={balcony}
-            onChange={(e) => setBalcony(e.target.value)}
-            disabled={loading}
-          />
-          <InputText
-            type="text"
-            placeholder="  Descrição"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            disabled={loading}
-          />
+        {isAddProperty ? (
+          <>
+            <AddPropertyContainer
+              onClick={() => setIsAddProperty(!isAddProperty)}
+            >
+              <RxTriangleDown /> Adicionar Imóvel
+            </AddPropertyContainer>
+            <p>Preencha os dados do imóvel a ser adicionado</p>
+            <Form>
+              <Input
+                type="number"
+                placeholder="  Quartos"
+                value={rooms}
+                onChange={(e) => setRooms(e.target.value)}
+                disabled={loading}
+              />
+              <Input
+                type="number"
+                placeholder="  Banheiros"
+                value={bathrooms}
+                onChange={(e) => setBathrooms(e.target.value)}
+                disabled={loading}
+              />
+              <Input
+                type="number"
+                placeholder="  Vagas de garagem"
+                value={parkingSpaces}
+                onChange={(e) => setParkingSpaces(e.target.value)}
+                disabled={loading}
+              />
+              <Input
+                type="number"
+                placeholder="  Área em m²"
+                value={area}
+                onChange={(e) => setArea(e.target.value)}
+                disabled={loading}
+              />
+              <InputText
+                type="text"
+                placeholder="  Endereço"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                disabled={loading}
+              />
+              <Input
+                type="text"
+                placeholder="  Nome"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                disabled={loading}
+              />
+              <Input
+                type="text"
+                placeholder="  Imagem"
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
+                disabled={loading}
+              />
+              <Input
+                type="text"
+                placeholder="  Preço"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                disabled={loading}
+              />
+            </Form>
+            <p>Preencha os dados extras</p>
+            <Form>
+              <Input
+                type="number"
+                placeholder="  Lavanderia"
+                value={laundry}
+                onChange={(e) => setLaundry(e.target.value)}
+                disabled={loading}
+              />
+              <Input
+                type="number"
+                placeholder="  Elevador"
+                value={elevator}
+                onChange={(e) => setElevator(e.target.value)}
+                disabled={loading}
+              />
+              <Input
+                type="number"
+                placeholder="  Varanda"
+                value={balcony}
+                onChange={(e) => setBalcony(e.target.value)}
+                disabled={loading}
+              />
+              <InputText
+                type="text"
+                placeholder="  Descrição"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                disabled={loading}
+              />
 
-          <div>
-            <PostButton onClick={createProperty} disabled={loading}>
-              Adicionar imóvel
-            </PostButton>
-          </div>
-        </Form>
-        <p>Preencha os dados do empreendimento</p>
-        <Form>
-          <Input
-            type="text"
-            placeholder="  Nome"
-            value={nameRS}
-            onChange={(e) => setNameRS(e.target.value)}
-            disabled={loading}
-          />
-          <Input
-            type="text"
-            placeholder="  Address"
-            value={addressRS}
-            onChange={(e) => setAddressRS(e.target.value)}
-            disabled={loading}
-          />
-          <Input
-            type="text"
-            placeholder="  Imagem Principal"
-            value={mainImageRS}
-            onChange={(e) => setMainImageRS(e.target.value)}
-            disabled={loading}
-          />
-          <InputText
-            type="text"
-            placeholder="  Descrição"
-            value={descriptionRS}
-            onChange={(e) => setDescriptionRS(e.target.value)}
-            disabled={loading}
-          />
+              <div>
+                <PostButton onClick={createProperty} disabled={loading}>
+                  Adicionar imóvel
+                </PostButton>
+              </div>
+            </Form>
+          </>
+        ) : (
+          <AddPropertyContainer
+            onClick={() => setIsAddProperty(!isAddProperty)}
+          >
+            <RxTriangleRight /> Adicionar Imóvel
+          </AddPropertyContainer>
+        )}
+        {isAddRealState ? (
+          <>
+            <AddPropertyContainer
+              onClick={() => setIsAddRealState(!isAddRealState)}
+            >
+              <RxTriangleDown /> Adicionar Empreendimento
+            </AddPropertyContainer>
+            <p>Preencha os dados do empreendimento</p>
+            <Form>
+              <Input
+                type="text"
+                placeholder="  Nome"
+                value={nameRS}
+                onChange={(e) => setNameRS(e.target.value)}
+                disabled={loading}
+              />
+              <Input
+                type="text"
+                placeholder="  Address"
+                value={addressRS}
+                onChange={(e) => setAddressRS(e.target.value)}
+                disabled={loading}
+              />
+              <Input
+                type="text"
+                placeholder="  Imagem Principal"
+                value={mainImageRS}
+                onChange={(e) => setMainImageRS(e.target.value)}
+                disabled={loading}
+              />
+              <InputText
+                type="text"
+                placeholder="  Descrição"
+                value={descriptionRS}
+                onChange={(e) => setDescriptionRS(e.target.value)}
+                disabled={loading}
+              />
 
-          <div>
-            <PostButton onClick={createRealState} disabled={loading}>
-              Adicionar Empreendimento
-            </PostButton>
-          </div>
-        </Form>
-        <p>Adicione imagens ao Empreendimento</p>
-        <Form>
-          <Input
-            type="number"
-            placeholder="  Id do empreendimento"
-            value={idRS}
-            onChange={(e) => setIdRS(e.target.value)}
-            disabled={loading}
-          />
-          <Input
-            type="text"
-            placeholder="  Imagem"
-            value={imageRS}
-            onChange={(e) => setImageRS(e.target.value)}
-            disabled={loading}
-          />
+              <div>
+                <PostButton onClick={createRealState} disabled={loading}>
+                  Adicionar Empreendimento
+                </PostButton>
+              </div>
+            </Form>
+          </>
+        ) : (
+          <AddPropertyContainer
+            onClick={() => setIsAddRealState(!isAddRealState)}
+          >
+            <RxTriangleRight /> Adicionar Empreendimento
+          </AddPropertyContainer>
+        )}
+        {isAddRealStateImage ? (
+          <>
+            <AddPropertyContainer
+              onClick={() => setIsAddRealStateImage(!isAddRealStateImage)}
+            >
+              <RxTriangleDown /> Adicionar imagem ao empreendimento
+            </AddPropertyContainer>
+            <p>Adicione imagens ao Empreendimento</p>
+            <Form>
+              <Input
+                type="number"
+                placeholder="  Id do empreendimento"
+                value={idRS}
+                onChange={(e) => setIdRS(e.target.value)}
+                disabled={loading}
+              />
+              <Input
+                type="text"
+                placeholder="  Imagem"
+                value={imageRS}
+                onChange={(e) => setImageRS(e.target.value)}
+                disabled={loading}
+              />
 
-          <div>
-            <PostButton onClick={addImageRealState} disabled={loading}>
-              Adicionar Imagem
-            </PostButton>
-          </div>
-        </Form>
+              <div>
+                <PostButton onClick={addImageRealState} disabled={loading}>
+                  Adicionar Imagem
+                </PostButton>
+              </div>
+            </Form>
+          </>
+        ) : (
+          <AddPropertyContainer
+            onClick={() => setIsAddRealStateImage(!isAddRealStateImage)}
+          >
+            <RxTriangleRight /> Adicionar imagem ao empreendimento
+          </AddPropertyContainer>
+        )}
       </MainAdmin>
       <Footer />
     </>
