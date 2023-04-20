@@ -7,17 +7,14 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const atalhos = [
-    "Inicio",
-    "Anuncie",
-    "Contato",
-    "Área do cliente",
-    "Área do admin",
-  ];
+  const atalhos = ["Inicio", "Anuncie", "Contato", "Login", "Área do admin"];
   const [isClicked, setIsClicked] = useState();
   const [isLogin, setIsLogin] = useState(false);
   const [cor, setCor] = useState([]);
   const navigate = useNavigate();
+  const isAdmin = localStorage.getItem("isAdmin");
+  console.log(isAdmin);
+
   function click(atalho, index) {
     if (cor[0] === index) {
       setCor([]);
@@ -44,7 +41,7 @@ export default function Header() {
         setIsClicked(false);
         navigate("/contact");
         break;
-      case "Área do cliente":
+      case "Login":
         setCor([]);
         setIsClicked(false);
         navigate("/auth/sign-in");
@@ -52,7 +49,7 @@ export default function Header() {
       case "Área do admin":
         setCor([]);
         setIsClicked(false);
-        navigate("/auth/sign-in");
+        navigate(isAdmin === "true" ? `/admin` : `/auth/sign-in`);
         break;
 
       default:

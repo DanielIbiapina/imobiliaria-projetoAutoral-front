@@ -19,6 +19,7 @@ const NotFound = () => {
 function RoutesApp() {
   const [id, setId] = useState(0);
   const [token, setToken] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
 
   function setAndPersistToken(token) {
     setToken(token);
@@ -27,6 +28,10 @@ function RoutesApp() {
   function setAndPersistId(id) {
     setId(id);
     localStorage.setItem("id", id);
+  }
+  function setAndPersistIsAdmin(isAdmin) {
+    setIsAdmin(isAdmin);
+    localStorage.setItem("isAdmin", isAdmin);
   }
 
   return (
@@ -39,6 +44,9 @@ function RoutesApp() {
           token,
           setToken,
           setAndPersistToken,
+          setIsAdmin,
+          isAdmin,
+          setAndPersistIsAdmin,
         }}
       >
         <Routes>

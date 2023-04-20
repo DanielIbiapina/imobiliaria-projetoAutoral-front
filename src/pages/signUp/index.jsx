@@ -6,11 +6,13 @@ import {
   BotaoEntrar,
   BotaoNaoTenhoConta,
   Form,
+  FormContainer,
   Input,
   SignUpContainer,
 } from "./styles";
 import { toast } from "react-toastify";
 import api from "../../services/api";
+import logo from "../../assets/logoielmelhorado.png";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -43,48 +45,51 @@ export default function SignUp() {
 
   return (
     <SignUpContainer>
-      <Form onSubmit={fazerCadastro}>
-        <Input
-          type="email"
-          placeholder="  E-mail"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <Input
-          type="password"
-          placeholder="  Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <Input
-          type="password"
-          placeholder="  Confirme sua senha"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-        {loading ? (
-          <BotaoEntrar>
-            <Oval
-              height={40}
-              width={40}
-              color="#FFFFFF"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={true}
-              ariaLabel="oval-loading"
-              secondaryColor="#4fa94d"
-              strokeWidth={2}
-              strokeWidthSecondary={2}
-            />
-          </BotaoEntrar>
-        ) : (
-          <BotaoEntrar type="submit">Cadastrar</BotaoEntrar>
-        )}
-      </Form>
+      <FormContainer>
+        <img src={logo} />
+        <Form onSubmit={fazerCadastro}>
+          <Input
+            type="email"
+            placeholder="  E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            type="password"
+            placeholder="  Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Input
+            type="password"
+            placeholder="  Confirme sua senha"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          {loading ? (
+            <BotaoEntrar>
+              <Oval
+                height={40}
+                width={40}
+                color="#FFFFFF"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+                ariaLabel="oval-loading"
+                secondaryColor="#4fa94d"
+                strokeWidth={2}
+                strokeWidthSecondary={2}
+              />
+            </BotaoEntrar>
+          ) : (
+            <BotaoEntrar type="submit">Cadastrar</BotaoEntrar>
+          )}
+        </Form>
 
-      <Link to={"/auth/sign-in"}>
-        <BotaoNaoTenhoConta>Já possui uma conta? Entre</BotaoNaoTenhoConta>
-      </Link>
+        <Link to={"/auth/sign-in"}>
+          <BotaoNaoTenhoConta>Já possui uma conta? Entre</BotaoNaoTenhoConta>
+        </Link>
+      </FormContainer>
     </SignUpContainer>
   );
 }

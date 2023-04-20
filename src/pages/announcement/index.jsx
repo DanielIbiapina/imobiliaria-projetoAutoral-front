@@ -53,42 +53,42 @@ export default function Announcement() {
         <Form>
           <Input
             type="text"
-            placeholder="  Tipo do móvel, Ex: Locação, Venda"
+            placeholder="Tipo do móvel, Ex: Locação, Venda"
             value={propertyType}
             onChange={(e) => setPropertyType(e.target.value)}
             disabled={loading}
           />
           <Input
             type="text"
-            placeholder="  Preço do imóvel"
+            placeholder="Preço do imóvel"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             disabled={loading}
           />
           <Input
             type="text"
-            placeholder="  Endereço do imóvel"
+            placeholder="Endereço do imóvel"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             disabled={loading}
           />
           <Input
             type="text"
-            placeholder="  Nome"
+            placeholder="Nome"
             value={name}
             onChange={(e) => setName(e.target.value)}
             disabled={loading}
           />
           <Input
             type="text"
-            placeholder="  E-mail"
+            placeholder="E-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={loading}
           />
           <Input
             type="text"
-            placeholder="  Telemóvel"
+            placeholder="Telemóvel"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             disabled={loading}

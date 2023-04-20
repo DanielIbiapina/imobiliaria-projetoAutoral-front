@@ -53,28 +53,28 @@ export default function ContactComponent() {
         <Form>
           <Input
             type="text"
-            placeholder="  Nome"
+            placeholder="Nome"
             value={name}
             onChange={(e) => setName(e.target.value)}
             disabled={loading}
           />
           <Input
             type="text"
-            placeholder="  E-mail"
+            placeholder="E-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={loading}
           />
           <Input
             type="text"
-            placeholder="  Telemóvel"
+            placeholder="Telemóvel"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             disabled={loading}
           />
           <InputText
             type="text"
-            placeholder="  Mensagem"
+            placeholder="Mensagem"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             disabled={loading}

@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const ContactContainer = styled.div`
   width: 1000px;
-  margin-top: 72px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 30px;
   p {
+    font-size: 20px;
     color: black;
   }
 `;
@@ -27,29 +28,33 @@ export const Input = styled.input`
   width: 503px;
   height: 70px;
   margin-bottom: 5px;
-  background: #efefef;
+  background: #ffffff;
   border-radius: 5px;
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 8px;
   ::placeholder {
-    font-family: "Lato";
     font-style: normal;
     font-weight: 300;
-    font-size: 15px;
+    font-size: 20px;
     line-height: 18px;
     color: #949494;
   }
 `;
-export const InputText = styled.input`
+export const InputText = styled.textarea`
   box-sizing: border-box;
   width: 503px;
-  height: 66px;
+  height: 140px;
   margin-bottom: 5px;
-  background: #efefef;
+  background: #ffffff;
   border-radius: 5px;
+  border: 1px solid black;
+  padding: 8px;
+  font-size: 20px;
   ::placeholder {
-    font-family: "Lato";
     font-style: normal;
     font-weight: 300;
-    font-size: 15px;
+    font-size: 20px;
     line-height: 18px;
     color: #949494;
   }
@@ -60,4 +65,6 @@ export const PostButton = styled.button`
   height: 31px;
   background: #326d97;
   border-radius: 5px;
+  font-size: 20px;
+  color: white;
 `;

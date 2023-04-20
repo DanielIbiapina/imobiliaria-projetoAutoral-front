@@ -8,35 +8,43 @@ export const SignUpContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #ffffff;
 `;
-export const Logo = styled.img`
-  margin-top: 134px;
-  width: 299px;
+
+export const FormContainer = styled.div`
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: #f4fafa;
+  width: 700px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
+
 export const BotaoEntrar = styled.button`
   width: 298px;
   height: 52px;
-  background: #ff4791;
-  border-radius: 8px;
   box-sizing: border-box;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 20.976px;
   line-height: 26px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
   margin-top: 8px;
+  background: #326d97;
+  border-radius: 5px;
+  font-size: 20px;
+  color: white;
 `;
 export const BotaoNaoTenhoConta = styled.div`
   width: 232px;
   height: 17px;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 13.976px;
+  font-size: 18px;
   line-height: 17px;
   display: flex;
   justify-content: center;
@@ -47,19 +55,20 @@ export const BotaoNaoTenhoConta = styled.div`
 `;
 export const Input = styled.input`
   box-sizing: border-box;
-  width: 303px;
-  height: 45px;
-  margin-bottom: 16px;
+  width: 503px;
+  height: 70px;
+  margin-bottom: 5px;
   background: #ffffff;
-  border: 1px solid #d5d5d5;
   border-radius: 5px;
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 8px;
   ::placeholder {
-    font-family: "Roboto";
     font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: #7e7e7e;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 18px;
+    color: #949494;
   }
 `;
 export const Form = styled.form`

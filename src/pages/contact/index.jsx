@@ -27,23 +27,23 @@ export default function Contact() {
     <>
       <Header />
       <MainContact>
+        <ContactComponent />
         <h1>Nossas redes Sociais</h1>
-        <p>
+        <h2>
           • Instagram:{" "}
           <a href="https://www.instagram.com/martinsbrokers/">
             @martinsbrokers
           </a>
-        </p>
-        <p>
+        </h2>
+        <h2>
           • Instagram Pessoal:{" "}
           <a href="https://www.instagram.com/martinsmdaniel/">
             @martinsmdaniel
           </a>
-        </p>
-        <p>
+        </h2>
+        <h2>
           • WhatsApp: <a href="https://wa.me/351938374379">+351 938 374 379</a>
-        </p>
-        <ContactComponent />
+        </h2>
       </MainContact>
 
       <Footer />
