@@ -13,7 +13,6 @@ export default function Header() {
   const [cor, setCor] = useState([]);
   const navigate = useNavigate();
   const isAdmin = localStorage.getItem("isAdmin");
-  console.log(isAdmin);
 
   function click(atalho, index) {
     if (cor[0] === index) {

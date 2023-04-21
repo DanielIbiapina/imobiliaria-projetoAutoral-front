@@ -33,7 +33,7 @@ export default function RealStateDevelopment() {
       try {
         const realStateData = await api.get(`/realstate-development/${id}`);
         setRealState(realStateData.data);
-        console.log(realStateData.data);
+
         setMarkedImage(realStateData.data.mainImage);
       } catch (e) {
         console.log(e);

@@ -131,7 +131,6 @@ export default function Guepardo() {
     setIsLevel(false);
     setIsSolution(false);
   }
-  console.log(caster);
 
   return (
     <>

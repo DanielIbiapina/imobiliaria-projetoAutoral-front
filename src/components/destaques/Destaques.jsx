@@ -10,7 +10,7 @@ import UserContext from "../../contexts/userContext";
 export default function Destaques({ destaqueProperty }) {
   const navigate = useNavigate();
   const { setId, setAndPersistId } = useContext(UserContext);
-  console.log(destaqueProperty);
+
   if (destaqueProperty[0] === undefined) {
     return "carregando...";
   }

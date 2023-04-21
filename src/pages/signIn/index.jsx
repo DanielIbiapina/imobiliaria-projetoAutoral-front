@@ -29,8 +29,7 @@ export default function SignIn() {
         email: email,
         password: senha,
       });
-      console.log(userData.data.token);
-      console.log(userData.data);
+
       setAndPersistToken(userData.data.token);
       setLoading(false);
       if (userData.data.user.isAdmin) {

@@ -37,7 +37,7 @@ export default function Property() {
       try {
         const propertyFullData = await api.get(`/property/${id}`);
         setPropertyFull(propertyFullData.data);
-        console.log(propertyFullData.data);
+
         setMarkedImage(propertyFullData.data.image);
       } catch (e) {
         console.log(e);

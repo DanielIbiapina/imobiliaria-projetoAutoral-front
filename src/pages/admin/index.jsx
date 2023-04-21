@@ -165,7 +165,6 @@ export default function Admin() {
     }
   }
 
-  console.log(token);
   return (
     <>
       <Header />

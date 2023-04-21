@@ -16,7 +16,7 @@ export default function Home() {
     async function fetchData() {
       try {
         const propertiesDataRecents = await api.get("/property/recent");
-        console.log(propertiesDataRecents.data);
+
         setRecentProperties(propertiesDataRecents.data);
       } catch (e) {
         console.log(e);
@@ -25,7 +25,7 @@ export default function Home() {
 
       try {
         const propertyDataDestaque = await api.get("/property/destaques");
-        console.log(propertyDataDestaque.data);
+
         setDestaqueProperty(propertyDataDestaque.data);
       } catch (e) {
         console.log(e);
@@ -35,7 +35,7 @@ export default function Home() {
         const realStateDevelopmentData = await api.get(
           "/realstate-development"
         );
-        console.log(realStateDevelopmentData.data);
+
         setDevelopmentProperties(realStateDevelopmentData.data);
       } catch (e) {
         console.log(e);
