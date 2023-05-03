@@ -86,7 +86,7 @@ export default function RealStateDevelopment() {
         </PropertyAndDescriptionContainer>
         <SideBar>
           <p>VENDA</p>
-          <h7>valores sujeitos a alterações sem aviso prévio</h7>
+          <h2>valores sujeitos a alterações sem aviso prévio</h2>
           <Button>
             <a href={token ? linkVisita : `/auth/sign-in`}>Agendar visita</a>
             <Divisor></Divisor>

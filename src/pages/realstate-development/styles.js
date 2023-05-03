@@ -94,6 +94,8 @@ export const SideBar = styled.div`
   justify-content: space-around;
   border-radius: 10px;
   border: 2px solid black;
+  h2 {
+  }
 `;
 
 export const Button = styled.div`

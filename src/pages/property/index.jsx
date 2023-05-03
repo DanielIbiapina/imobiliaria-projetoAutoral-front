@@ -71,9 +71,6 @@ export default function Property() {
     { name: propertyFull.area, icon: "BiArea" },
   ];
 
-  if (propertyFull === null || propertyFull.PropertyFull === null) {
-    return "carregando...";
-  }
   const linkVisita =
     "https://wa.me/351938374379?text=Olá%20gostaria%20de%20fazer%20uma%20visita%20ao%20" +
     propertyFull.name;
@@ -81,6 +78,7 @@ export default function Property() {
     "https://wa.me/351938374379?text=Olá%20gostaria%20de%20fazer%20uma%20proposta%20para%20" +
     propertyFull.name;
   console.log(id);
+
   return (
     <>
       <Header />
@@ -136,7 +134,7 @@ export default function Property() {
         <SideBar>
           <p>VENDA</p>
           <h1>{propertyFull.price},00 €</h1>
-          <h7>valores sujeitos a alterações sem aviso prévio</h7>
+          <h2>valores sujeitos a alterações sem aviso prévio</h2>
           <Button>
             <a href={token ? linkVisita : `/auth/sign-in`}>Agendar visita</a>
             <Divisor></Divisor>
