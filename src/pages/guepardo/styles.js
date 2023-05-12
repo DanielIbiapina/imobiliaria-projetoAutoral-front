@@ -172,3 +172,33 @@ export const SolutionExplanationContainer = styled.div`
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 `;
+export const BosonContainer = styled.div`
+  width: 100vmax;
+  min-height: 100vh;
+  height: 100%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+`;
+
+export const BosonzinhoContainer = styled.div`
+  width: 670px;
+  background-color: green;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 5px;
+  border-radius: 15px;
+`;
+
+export const MarketItems = styled.div`
+  width: 100px;
+  height: 150px;
+  background-color: white;
+  margin-right: 5px;
+  margin-left: 5px;
+  border-radius: 15px;
+`;

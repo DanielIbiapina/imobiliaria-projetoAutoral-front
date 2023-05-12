@@ -94,6 +94,18 @@ export default function Admin() {
 
       toast("Imóvel criado");
       setLoading(false);
+      setRooms("");
+      setBathrooms("");
+      setParkingSpaces("");
+      setArea("");
+      setAddress("");
+      setName("");
+      setImage("");
+      setPrice("");
+      setLaundry("");
+      setElevator("");
+      setDescription("");
+      setBalcony("");
     } catch (e) {
       console.log(e);
       toast("Imóvel não foi criado");
@@ -127,6 +139,10 @@ export default function Admin() {
 
       toast("Empreendimento criado");
       setLoading(false);
+      setNameRS("");
+      setAddressRS("");
+      setMainImageRS("");
+      setDescriptionRS("");
     } catch (e) {
       console.log(e);
       toast("Empreendimento não foi criado");
@@ -158,6 +174,7 @@ export default function Admin() {
 
       toast("Imagem adicionada");
       setLoading(false);
+      setImageRS("");
     } catch (e) {
       console.log(e);
       toast("Imagem não foi adicionada");
@@ -298,7 +315,7 @@ export default function Admin() {
               />
               <Input
                 type="text"
-                placeholder="  Address"
+                placeholder="  Endereço"
                 value={addressRS}
                 onChange={(e) => setAddressRS(e.target.value)}
                 disabled={loading}

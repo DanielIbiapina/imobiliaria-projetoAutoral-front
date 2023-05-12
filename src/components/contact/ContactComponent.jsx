@@ -17,7 +17,7 @@ export default function ContactComponent() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  async function createProperty() {
+  async function sendMessage() {
     try {
       if (loading) {
         return;
@@ -30,7 +30,7 @@ export default function ContactComponent() {
 
       setLoading(true);
 
-      await api.post("/contact", {
+      await api.post("/messages", {
         name: name,
         email: email,
         phone: phone,
@@ -80,7 +80,7 @@ export default function ContactComponent() {
             disabled={loading}
           />
           <div>
-            <PostButton onClick={createProperty} disabled={loading}>
+            <PostButton onClick={sendMessage} disabled={loading}>
               Enviar
             </PostButton>
           </div>

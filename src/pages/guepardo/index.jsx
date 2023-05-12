@@ -1,4 +1,9 @@
-import { SubsystemsContainer } from "./styles";
+import {
+  BosonContainer,
+  BosonzinhoContainer,
+  MarketItems,
+  SubsystemsContainer,
+} from "./styles";
 import { Subsystem } from "./styles";
 import geometry from "../../assets/geometry.jpg";
 import aero from "../../assets/aero.jpg";
@@ -43,6 +48,7 @@ export default function Guepardo() {
   const increaseOrDecrease = ["Increase", "Decrease"];
   const [increaseOrDecreaseVector, setIncreaseOrDecreaseVector] = useState("");
   const [isGeometry, setIsGeometry] = useState(false);
+  const [isBrakes, setIsBrakes] = useState(false);
   const [isSituation, setIsSituation] = useState(false);
   const [isLevel, setIsLevel] = useState(false);
   const [isSolution, setIsSolution] = useState(false);
@@ -67,6 +73,9 @@ export default function Guepardo() {
   function showFirstPage(name) {
     if (name === "Geometry") {
       setIsGeometry(true);
+    }
+    if (name === "Brakes") {
+      setIsBrakes(true);
     }
   }
   function showSecondPage() {
@@ -332,6 +341,25 @@ export default function Guepardo() {
             </GeometryContainerMain>
           </GeometryContainer>
         )
+      ) : isBrakes ? (
+        <BosonContainer>
+          <BosonzinhoContainer>
+            <MarketItems></MarketItems>
+            <MarketItems></MarketItems>
+            <MarketItems></MarketItems>
+            <MarketItems></MarketItems>
+            <MarketItems></MarketItems>
+            <MarketItems></MarketItems>
+            <MarketItems></MarketItems>
+            <MarketItems></MarketItems>
+            <MarketItems></MarketItems>
+            <MarketItems></MarketItems>
+            <MarketItems></MarketItems>
+            <MarketItems></MarketItems>
+            <MarketItems></MarketItems>
+            <MarketItems></MarketItems>
+          </BosonzinhoContainer>
+        </BosonContainer>
       ) : (
         <SubsystemsContainer>
           {subsystems.map((subsystem) => {

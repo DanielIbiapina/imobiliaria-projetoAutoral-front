@@ -92,7 +92,9 @@ export const SideBar = styled.div`
   justify-content: space-around;
   border-radius: 10px;
   border: 2px solid black;
+  background-color: #ffffff;
   h2 {
+    font-size: 20px;
   }
 `;
 

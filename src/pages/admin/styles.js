@@ -41,7 +41,7 @@ export const Input = styled.input`
     color: #949494;
   }
 `;
-export const InputText = styled.input`
+export const InputText = styled.textarea`
   box-sizing: border-box;
   width: 503px;
   height: 66px;
@@ -73,6 +73,6 @@ export const AddPropertyContainer = styled.div`
   width: 503px;
   height: 70px;
   border-radius: 20px;
-  background: #1877f2;
+  background: #326d97;
   margin-top: 30px;
 `;
