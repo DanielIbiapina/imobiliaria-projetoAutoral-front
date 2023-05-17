@@ -15,16 +15,19 @@ export const FormContainer = styled.div`
   border: 1px solid black;
   border-radius: 20px;
   background-color: #f4fafa;
-  width: 700px;
-  height: 700px;
+  width: 500px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  img {
+    width: 360px;
+  }
 `;
 export const BotaoEntrar = styled.button`
-  width: 298px;
-  height: 52px;
+  width: 213px;
+  height: 37px;
   box-sizing: border-box;
   font-style: normal;
   font-weight: 400;
@@ -54,8 +57,8 @@ export const BotaoNaoTenhoConta = styled.div`
 `;
 export const Input = styled.input`
   box-sizing: border-box;
-  width: 503px;
-  height: 70px;
+  width: 360px;
+  height: 50px;
   margin-bottom: 5px;
   background: #ffffff;
   border-radius: 5px;

@@ -54,13 +54,13 @@ export const ImovelBar = styled.div`
 `;
 export const Price = styled.div`
   box-sizing: border-box;
-  width: 120px;
+  width: 130px;
   height: 80px;
   position: absolute;
   margin-top: -20px;
   margin-left: -20px;
   z-index: 2;
-  background-color: #f4fafa;
+  background-color: #ffffff;
   border: solid 3px #326d97;
   display: flex;
   flex-direction: column;

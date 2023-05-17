@@ -58,7 +58,7 @@ export default function Header() {
   return (
     <>
       <HeaderContainer>
-        <Logo src={logo}></Logo>
+        <Logo onClick={() => navigate("/")} src={logo}></Logo>
         <AtalhosContainer>
           <div>
             {atalhos.map((atalho, index) => (

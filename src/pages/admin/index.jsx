@@ -6,9 +6,10 @@ import {
   Input,
   InputText,
   MainAdmin,
+  MessageContainer,
   PostButton,
 } from "./styles";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import api from "../../services/api";
 import { toast } from "react-toastify";
 import UserContext from "../../contexts/userContext";
@@ -33,8 +34,10 @@ export default function Admin() {
   const [descriptionRS, setDescriptionRS] = useState("");
   const [idRS, setIdRS] = useState("");
   const [imageRS, setImageRS] = useState("");
+  const [messages, setMessages] = useState("");
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
+  const [isMessage, setIsMessage] = useState(false);
   const [isAddProperty, setIsAddProperty] = useState(false);
   const [isAddRealState, setIsAddRealState] = useState(false);
   const [isAddRealStateImage, setIsAddRealStateImage] = useState(false);
@@ -43,6 +46,20 @@ export default function Admin() {
       Authorization: `Bearer ${token}`,
     },
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const messagesData = await api.get("/messages");
+        console.log(messagesData);
+        setMessages(messagesData.data);
+      } catch (e) {
+        console.log(e);
+        console.log("deu ruim");
+      }
+    }
+    fetchData();
+  }, []);
 
   async function createProperty() {
     try {
@@ -186,6 +203,29 @@ export default function Admin() {
     <>
       <Header />
       <MainAdmin>
+        {isMessage ? (
+          <>
+            <AddPropertyContainer onClick={() => setIsMessage(!isMessage)}>
+              <RxTriangleDown /> Visualizar mensagens
+            </AddPropertyContainer>
+
+            {messages.map((message, index) => {
+              return (
+                <>
+                  <MessageContainer>
+                    {message.name}
+                    {message.email}
+                    {message.message}
+                  </MessageContainer>
+                </>
+              );
+            })}
+          </>
+        ) : (
+          <AddPropertyContainer onClick={() => setIsMessage(!isMessage)}>
+            <RxTriangleRight /> Visualizar mensagens
+          </AddPropertyContainer>
+        )}
         {isAddProperty ? (
           <>
             <AddPropertyContainer

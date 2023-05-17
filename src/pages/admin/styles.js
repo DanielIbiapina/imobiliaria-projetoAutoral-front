@@ -10,6 +10,7 @@ export const MainAdmin = styled.div`
   align-items: center;
   padding-top: 30px;
   p {
+    margin-top: 10px;
     color: black;
   }
 `;
@@ -59,8 +60,8 @@ export const InputText = styled.textarea`
 `;
 
 export const PostButton = styled.button`
-  width: 112px;
-  height: 31px;
+  width: 122px;
+  height: 37px;
   background: #1877f2;
   border-radius: 5px;
 `;
@@ -75,4 +76,8 @@ export const AddPropertyContainer = styled.div`
   border-radius: 20px;
   background: #326d97;
   margin-top: 30px;
+`;
+
+export const MessageContainer = styled.div`
+  display: flex;
 `;

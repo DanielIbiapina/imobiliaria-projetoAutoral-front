@@ -44,6 +44,7 @@ export const Atalhos = styled.div`
     color: #326d97;
     border-right: solid 1.5px #326d97;
     border-left: solid 1.5px #326d97;
+    transition: 200ms linear;
   }
 `;
 export const SubHeaderContainer = styled.div`
